@@ -121,3 +121,22 @@ For i = 0 To 11
     
 Next i
 ```
+
+The refactored code ends up as two separate loops; one for calculation, the next for writing to cells.
+
+## Summary
+
+### Pros and Cons of Refactoring Code
+
+Pros
+
+- Code may execute faster
+- Code may be more useful for larger datasets
+
+Cons
+
+- Refactoring code takes extra time to write
+
+### How Do the Pros and Cons Apply to This VBA Script?
+
+The advantage in execution time is the best justification for refactoring our VBA script. The time spent in refactoring is well worth the time that would be saved if Steve were to run the analysis on a larger set of data. Additionally, refactoring this script has shown us a better way to do this kind of data analysis, so next time we write a script to do something similar, we can impliment these changes from the start.
