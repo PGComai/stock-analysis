@@ -81,5 +81,43 @@ For i = 0 To 11
 Next i
 ```
 
+After refactoring, the code initialized arrays with a dimension of 12, the number of stock tickers, before everything else. This allowed the results for each ticker to be added to the arrays within the loop, and then those results were read out to cells at the very end. Some of the refactored code is shown below.
 
-After refactoring, the code initialized arrays with a dimension of 12, the number of stock tickers, before everything else. This allowed the results for each ticker to be added to the arrays, and then those results were read out to cells at the very end.
+'''
+For i = 2 To RowCount
+        ticker = tickers(tickerIndex)
+    
+        '3a) Increase volume for current ticker
+        tickerVolumes(tickerIndex) = tickerVolumes(tickerIndex) + Cells(i, 8).Value
+        
+        '3b) Check if the current row is the first row with the selected tickerIndex.
+        If Cells(i - 1, 1).Value <> ticker And Cells(i, 1).Value = ticker Then
+        
+            tickerStartingPrices(tickerIndex) = Cells(i, 6).Value
+        
+        End If
+        
+        '3c) check if the current row is the last row with the selected ticker
+         'If the next rowâ€™s ticker doesnâ€™t match, increase the tickerIndex.
+        If Cells(i + 1, 1).Value <> ticker And Cells(i, 1).Value = ticker Then
+        
+            tickerEndingPrices(tickerIndex) = Cells(i, 6).Value
+            
+            tickerIndex = tickerIndex + 1
+        
+        End If
+            
+    
+    Next i
+    
+    '4) Loop through your arrays to output the Ticker, Total Daily Volume, and Return.
+    For i = 0 To 11
+        
+        Worksheets("All Stocks Analysis").Activate
+        
+        Cells(4 + i, 1).Value = tickers(i)
+        Cells(4 + i, 2).Value = tickerVolumes(i)
+        Cells(4 + i, 3).Value = tickerEndingPrices(i) / tickerStartingPrices(i) - 1
+        
+    Next i
+'''
