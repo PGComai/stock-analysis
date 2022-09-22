@@ -26,3 +26,13 @@ Original:
 Refactored:
 
 ![image](/Resources/VBA_Challenge_2017.png)
+
+Execution times for 2018:
+
+Original:
+
+![image](/Resources/VBA_Challenge_2018_unrefactored.png)
+
+Refactored:
+
+![image](/Resources/VBA_Challenge_2018.png)
