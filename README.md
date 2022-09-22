@@ -10,5 +10,4 @@ Our good friend Steve requested our help to analyze some stock data in order to 
 
 2017 was a good year for most of our stock returns and a great year for DQ, ENPH, FSLR, and SEDG, who all more than doubled their values. 2018 was a different story, with every stock except ENPH and RUN seeing negative returns.
 
-![image](/Resources/2017_analysis.png)
-![image](/Resources/2018_analysis.png)
+![image](/Resources/2017_analysis.png) ![image](/Resources/2018_analysis.png)
