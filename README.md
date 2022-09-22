@@ -20,7 +20,9 @@ Our VBA scripts include a timer which measures how long the code took to run in 
 Execution times for 2017:
 
 Original:
+
 ![image](/Resources/VBA_Challenge_2017_unrefactored.png)
 
 Refactored:
+
 ![image](/Resources/VBA_Challenge_2017.png)
