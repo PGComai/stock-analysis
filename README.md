@@ -36,3 +36,50 @@ Original:
 Refactored:
 
 ![image](/Resources/VBA_Challenge_2018.png)
+
+In both cases the refactored code ran almost 10x faster. In order to achieve this, the code had to be changed so that it would wait until all the calculations had finished to read the values into cells. The original code would loop through the data until it reached a new stock ticker, at which point it would write the results of its calculation to the cells in the row of the last ticker. The main loop of this code is shown below.
+
+```
+For i = 0 To 11
+
+    'loop through tickers
+
+    ticker = tickers(i)
+    
+    totalVolume = 0
+    
+    Worksheets("2018").Activate
+    
+    For j = 2 To RowCount
+    
+        If Cells(j, 1).Value = ticker Then
+        
+            totalVolume = totalVolume + Cells(j, 8).Value
+            
+        End If
+        
+        If Cells(j - 1, 1).Value <> ticker And Cells(j, 1).Value = ticker Then
+        
+            startingPrice = Cells(j, 6).Value
+        
+        End If
+        
+        If Cells(j + 1, 1).Value <> ticker And Cells(j, 1).Value = ticker Then
+        
+            endingPrice = Cells(j, 6).Value
+        
+        End If
+    
+    Next j
+    
+    Worksheets("All Stocks Analysis").Activate
+    
+    Cells(4 + i, 1).Value = ticker
+    Cells(4 + i, 2).Value = totalVolume
+    Cells(4 + i, 3).Value = endingPrice / startingPrice - 1
+    
+Next i
+```
+
+
+After refactoring, the code initialized arrays with a dimension of 12, the number of stock tickers, before everything else. This allowed the results for each ticker to be added to the arrays, and then those results were read out to cells at the very end.
