@@ -83,8 +83,7 @@ Next i
 
 After refactoring, the code initialized arrays with a dimension of 12, the number of stock tickers, before everything else. This allowed the results for each ticker to be added to the arrays within the loop, and then those results were read out to cells at the very end. Some of the refactored code is shown below.
 
-'''
-
+```
 For i = 2 To RowCount
         ticker = tickers(tickerIndex)
     
@@ -121,4 +120,4 @@ For i = 2 To RowCount
         Cells(4 + i, 3).Value = tickerEndingPrices(i) / tickerStartingPrices(i) - 1
         
     Next i
-'''
+```
