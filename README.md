@@ -136,6 +136,7 @@ Pros
 Cons
 
 - Refactoring code takes extra time to write
+- Code may be 'more picky' regarding uses with slightly different data
 
 ### How Do the Pros and Cons Apply to This VBA Script?
 
